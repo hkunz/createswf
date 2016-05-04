@@ -1,0 +1,76 @@
+<!DOCTYPE movie [
+
+<!ENTITY author "Harry Kunz">
+<!ENTITY date "16/07/2012">
+
+<!ELEMENT movie (player?, quality?, mode?, name?, library?)>
+<!ELEMENT quality (#PCDATA)>
+<!ELEMENT player (#PCDATA)>
+<!ELEMENT mode (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT library (sprites?, movieclips?, bitmaps?, sounds?, binaries?)>
+
+<!ATTLIST movie width CDATA "640">
+<!ATTLIST movie height CDATA "480">
+<!ATTLIST movie fps CDATA "24">
+<!ATTLIST movie background CDATA "#ffffff">
+
+<!ELEMENT sprites (spr+)>
+<!ELEMENT spr (object*)>
+<!ELEMENT object (#PCDATA)>
+
+<!ATTLIST spr class ID #REQUIRED>
+<!ATTLIST spr name CDATA #IMPLIED>
+<!ATTLIST spr path CDATA #IMPLIED>
+<!ATTLIST spr x CDATA "0">
+<!ATTLIST spr y CDATA "0">
+<!ATTLIST spr alpha CDATA "1.0">
+<!ATTLIST spr visible (true|false|0|1) "true">
+
+<!ATTLIST object name ID #IMPLIED>
+<!ATTLIST object path CDATA #IMPLIED>
+<!ATTLIST object x CDATA "0">
+<!ATTLIST object y CDATA "0">
+<!ATTLIST object alpha CDATA "1.0">
+<!ATTLIST object visible (true|false|0|1) "true">
+
+<!ELEMENT movieclips (mc+)>
+<!ELEMENT mc (frame*)>
+<!ELEMENT frame (#PCDATA)>
+
+<!ATTLIST mc class ID #REQUIRED>
+<!ATTLIST mc name CDATA #IMPLIED>
+<!ATTLIST mc path CDATA #IMPLIED>
+<!ATTLIST mc x CDATA "0">
+<!ATTLIST mc y CDATA "0">
+<!ATTLIST mc alpha CDATA "1.0">
+<!ATTLIST mc visible (true|false|0|1) "true">
+<!ATTLIST mc fps CDATA "12">
+
+<!ATTLIST frame name ID #IMPLIED>
+<!ATTLIST frame path CDATA #IMPLIED>
+<!ATTLIST frame x CDATA "0">
+<!ATTLIST frame y CDATA "0">
+<!ATTLIST frame alpha CDATA "1.0">
+<!ATTLIST frame visible (true|false|0|1) "true">
+
+<!ELEMENT bitmaps (bmp*)>
+<!ELEMENT bmp (#PCDATA)>
+<!ELEMENT sounds (snd*)>
+<!ELEMENT snd (#PCDATA)>
+<!ELEMENT binaries (bin*)>
+<!ELEMENT bin (#PCDATA)>
+
+<!ATTLIST bmp class ID #REQUIRED>
+<!ATTLIST bmp name CDATA #IMPLIED>
+<!ATTLIST bmp path CDATA #REQUIRED>
+
+<!ATTLIST snd class ID #REQUIRED>
+<!ATTLIST snd name CDATA #IMPLIED>
+<!ATTLIST snd path CDATA #REQUIRED>
+
+<!ATTLIST bin class ID #REQUIRED>
+<!ATTLIST bin name CDATA #IMPLIED>
+<!ATTLIST bin path CDATA #REQUIRED>
+
+]>

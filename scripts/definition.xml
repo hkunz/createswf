@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<!DOCTYPE movie SYSTEM "doctypedef.dtd">
+
+<movie width="320" height="240" fps="12" background="#CCCCCC">
+	<player>10.2</player>
+	<quality>80</quality>
+	<mode>1</mode>
+	<name>assets.swf</name>
+	<library>
+		<sprites>
+			<spr class="emptysprite" />
+			<spr class="spr1" path="base/path/image.png" x="20" y="-10" alpha="0.2" />
+			<spr class="spr2" path="base/path/">
+				<object name="name1" path="path/image1.jpg" x="10" y="5" alpha="" visible="false" />
+				<object name="name2" path="path/image2.png" y="5" alpha="1.0" />
+				<object name="name3" path="path/image3.gif" alpha="0.5" />
+			</spr>
+		</sprites>
+		<movieclips>
+			<mc class="emptymovieclip" />
+			<mc class="mc1" path="base/path/image.png" />
+			<mc class="mc2" path="base/path/">
+				<frame name="name4" path="path/image1.jpg" x="10" y="5" alpha="" visible="false" />
+				<frame name="name5" path="path/image2.png" y="5" alpha="1.0" />
+				<frame name="name6" path="path/image3.gif" alpha="0.5" />
+			</mc>
+		</movieclips>
+		<bitmaps>
+			<bmp class="bmp1" path="path/bmp1.jpg" />
+			<bmp class="bmp2" path="path/bmp1.png" />
+			<bmp class="bmp3" path="path/bmp1.gif" />
+		</bitmaps>
+		<sounds>
+			<snd class="snd1" path="path/sound.mp3" />
+			<snd class="snd2" path="path/sound.wav" />
+			<snd class="snd3" path="path/sound.ogg" />
+		</sounds>
+		<binaries>
+			<bin class="bin1" path="path/image.bmp" />
+			<bin class="bin2" path="path/sound.ogg" />
+			<bin class="bin3" path="path/movie.swf" />
+			<bin class="bin4" path="path/document.doc" />
+			<bin class="bin5" path="path/prog.exe" />
+			<bin class="bin6" path="path/whateverfile" />
+		</binaries>
+	</library>
+</movie>

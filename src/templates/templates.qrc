@@ -1,0 +1,13 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+<qresource prefix="">
+	<file alias="Main.as">Main.as</file>
+	<file>BitmapData.as</file>
+	<file>ExtendedMovieClip.as</file>
+	<file>ExtendedSprite.as</file>
+	<file>MovieClip.as</file>
+	<file>Sprite.as</file>
+	<file>Sound.as</file>
+	<file>ByteArray.as</file>
+</qresource>
+</RCC>

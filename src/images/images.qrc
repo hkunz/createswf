@@ -1,0 +1,8 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+<qresource prefix="/images">
+	<file alias="16x16/open.png">16x16/open.png</file>
+	<file alias="32x32/open.png">32x32/open.png</file>
+	<file>256x256/logo.png</file>
+</qresource>
+</RCC>
