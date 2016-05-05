@@ -26,7 +26,7 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "MemoryAllocator.h"
+#include "common/MemoryAllocator.h"
 #include "ports/System.h"
 #include <stdint.h>
 #include <stddef.h>
