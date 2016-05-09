@@ -26,7 +26,7 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "MainWindow.h"
+#include "gui/MainWindow.h"
 #include "gui/AboutDialog.h"
 #include "gui/PreferencesDialog.h"
 

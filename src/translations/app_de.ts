@@ -17,7 +17,7 @@
 <context>
     <name>main</name>
     <message>
-    	<location filename"../src/main.cpp"/>
+    	<location filename="../src/main.cpp"/>
     	<source>noflex</source>
     	<translation>Error: Environment variable FLEX_HOME must point to the Flex SDK directory. You can obtain a free copy of the SDK at http://www.adobe.com/devnet/flex/flex-sdk-download.html</translation>
     </message>

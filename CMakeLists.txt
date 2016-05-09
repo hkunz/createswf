@@ -1,33 +1,46 @@
-cmake_minimum_required(VERSION 2.8.11)
+cmake_minimum_required(VERSION 2.8.12)
 project(createswf)
+include(${PROJECT_SOURCE_DIR}/cmake/shared.cmake)
 
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_AUTOMOC ON)
+find_package(Qt5Widgets REQUIRED)
+find_package(Qt5Gui REQUIRED)
+find_package(Qt5Xml REQUIRED)
+find_package(Qt5XmlPatterns REQUIRED)
+find_package(Qt5LinguistTools REQUIRED)
 
-find_package(Qt5Widgets)
-find_package(Qt5Core)
-find_package(Qt5Xml)
+file(GLOB CREATESWF_TRANSLATIONS ${ROOT_DIR}/src/translations/*.ts)
 
-file(GLOB_RECURSE CPP_FILES ${PROJECT_SOURCE_DIR}/src/ "*.cpp")
-file(GLOB_RECURSE CPP_HEADERS *.h)
-file(GLOB_RECURSE UI_FILES *.ui)
-file(GLOB_RECURSE RES_FILES *.qrc)
+set(CREATESWF_DIRS
+	${ROOT_DIR}/src
+	${ROOT_DIR}/src/gui
+	${ROOT_DIR}/src/common
+	${ROOT_DIR}/src/constants
+	${ROOT_DIR}/src/gui
+	${ROOT_DIR}/src/parsers
+	${ROOT_DIR}/src/ports)
 
+unset(CREATESWF_SOURCES)
+unset(CREATESWF_HEADERS)
+foreach(DIR ${CREATESWF_DIRS})
+file(GLOB CREATESWF_SOURCES_ ${DIR}/*.cpp)
+file(GLOB CREATESWF_HEADERS_ ${DIR}/*.h)
+list(APPEND CREATESWF_SOURCES ${CREATESWF_SOURCES_})
+list(APPEND CREATESWF_HEADERS ${CREATESWF_HEADERS_})
+unset(CREATESWF_SOURCES_)
+unset(CREATESWF_HEADERS_)
+endforeach()
 
-qt5_add_resources(ResourceSources ${RES_FILES})
+add_definitions(-DHAVE_CONFIG_H)
+include_directories(${CREATESWF_DIRS} ${AUTOGEN_TARGETS_FOLDER} ${LIBSSH2_INCLUDE_DIRS} ${AUTOMOC_TARGETS_FOLDER} ${CMAKE_BINARY_DIR})
+qt5_add_translation(CREATESWF_QM ${CREATESWF_TRANSLATIONS})
+qt5_add_resources(CREATESWF_RESOURCES
+	${ROOT_DIR}/src/images/images.qrc
+	${ROOT_DIR}/src/templates/templates.qrc)
 
-qt5_wrap_cpp(CPP_SOURCES ${CPP_FILES})
-qt5_wrap_ui(UI_SOURCES ${UI_FILES})
+qt5_wrap_ui(CREATESWF_UI
+	${ROOT_DIR}/src/gui/mainwindow.ui
+	${ROOT_DIR}/src/gui/aboutdialog.ui
+	${ROOT_DIR}/src/gui/preferencesdialog.ui)
 
-message(STATUS "${PROJECT_SOURCE_DIR} ===== ${CPP_FILES}")
-
-get_target_property(QtCore_location Qt5::Core LOCATION)
-get_target_property(QtXml_location Qt5::Xml LOCATION)
-get_target_property(QtWidgets_location Qt5::Widgets LOCATION)
-
-set(CMAKE_CXX_FLAGS_COVERAGE "${CMAKE_CXX_FLAGS_RELEASE} -fprofile-arcs -ftest-coverage")
-set_target_properties(Qt5::Core PROPERTIES MAP_IMPORTED_CONFIG_COVERAGE "RELEASE")
-
-add_executable(createswf src/main.cpp ${CPP_SOURCES} ${CPP_HEADERS} ${UI_SOURCES} ${ResourceSources})
-
-target_link_libraries(createswf Qt5::Widgets Qt5::Xml Qt5::Core)
+add_executable(${CMAKE_PROJECT_NAME} ${CREATESWF_SOURCES} ${CREATESWF_QM} ${CREATESWF_RESOURCES} ${CREATESWF_UI} ${CREATESWF_HEADERS})
+qt5_use_modules(${CMAKE_PROJECT_NAME} Widgets Gui Network Xml XmlPatterns)
