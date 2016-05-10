@@ -93,12 +93,12 @@ public:
 	~ScrollBar ()
 	{
 	}
-	void hideEvent (QHideEvent *e)
-	{
+	void hideEvent (QHideEvent *e) {
+		Q_UNUSED(e);
 		emit onShow(false);
 	}
-	void showEvent (QShowEvent *e)
-	{
+	void showEvent (QShowEvent *e) {
+		Q_UNUSED(e);
 		emit onShow(true);
 	}
 

@@ -49,7 +49,6 @@ void center (QWidget &widget);
 int main (int argc, char** argv)
 {
 	info("welcome to \'" + QLatin1String(APPFULLNAME) + "\' project: " + QLatin1String(argv[0]));
-	typedef DefinitionParser::CompileArguments Args;
 
 #ifdef Q_WS_X11
 	QApplication::setGraphicsSystem(QLatin1String("raster"));

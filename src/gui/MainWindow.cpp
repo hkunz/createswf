@@ -126,8 +126,9 @@ void MainWindow::openPreferencesDialog () const
 	dialog.exec();
 }
 
-void MainWindow::closeEvent (QCloseEvent *event)
+void MainWindow::closeEvent (QCloseEvent *e)
 {
+	Q_UNUSED(e);
 }
 
 void MainWindow::browseFile ()
@@ -227,6 +228,8 @@ void MainWindow::compileTarget ()
 
 void MainWindow::onCompileProcessComplete (int exitCode, QProcess::ExitStatus status, QString& msg)
 {
+	Q_UNUSED(exitCode);
+	Q_UNUSED(status);
 	_compileComplete = true;
 	_progressDialog.close();
 
@@ -252,6 +255,7 @@ void MainWindow::resizeDirList (int items)
 
 void MainWindow::onHScrollBarShown (bool shown)
 {
+	Q_UNUSED(shown);
 	//resizeDirList(_dirList->count() + 1);
 	resize(width(), minimumHeight());
 }
@@ -267,12 +271,14 @@ void MainWindow::changeEvent (QEvent *event)
 	}
 }
 
-void MainWindow::keyPressEvent (QKeyEvent *event)
+void MainWindow::keyPressEvent (QKeyEvent *e)
 {
+	Q_UNUSED(e);
 }
 
-void MainWindow::keyReleaseEvent (QKeyEvent *event)
+void MainWindow::keyReleaseEvent (QKeyEvent *e)
 {
+	Q_UNUSED(e);
 }
 
 void MainWindow::dragEnterEvent (QDragEnterEvent *e)
@@ -287,6 +293,7 @@ void MainWindow::dragMoveEvent (QDragMoveEvent *e)
 
 void MainWindow::dropEvent (QDropEvent *e)
 {
+	Q_UNUSED(e);
 	const QMimeData* mimeData = e->mimeData();
 	QList<QUrl> urls = mimeData->urls();
 	for (QList<QUrl>::iterator iter = urls.begin(); iter != urls.end(); ++iter) {
@@ -298,8 +305,9 @@ void MainWindow::dropEvent (QDropEvent *e)
 	}
 }
 
-void MainWindow::resizeEvent (QResizeEvent* event)
+void MainWindow::resizeEvent (QResizeEvent *e)
 {
+	Q_UNUSED(e);
 	//_container->resize(this->width(), 100);
 	//_dirList->resize(this->width(), 50);
 	//setFixedHeight(sizeHint().height());

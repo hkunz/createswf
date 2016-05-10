@@ -99,7 +99,7 @@ bool CommandLineParser::parse (int argc, char* argv[])
 		case 'p': {
 			int player = atof(optarg);
 			if (player < 9) {
-				printf("invalid quality %f\n", player);
+				printf("invalid quality %d\n", player);
 				return EXIT_FAILURE;
 			}
 			_player = player;

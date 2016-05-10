@@ -56,9 +56,6 @@
     <addaction name="_actionAboutQt"/>
    </widget>
    <addaction name="_menuFile"/>
-   <addaction name="_menuEdit"/>
-   <addaction name="_menuView"/>
-   <addaction name="_menuMap"/>
    <addaction name="_menuHelp"/>
   </widget>
   <widget class="QToolBar" name="_toolbar">
